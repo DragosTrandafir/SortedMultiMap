@@ -192,7 +192,9 @@ bool SortedMultiMap::remove(TKey c, TValue v) {
 	currentIndex = head;
 	previousIndex = -1;
 	//efficiency
-	while (currentIndex != -1 && (elements[currentIndex]->e.first != c || elements[currentIndex]->e.second != v) && rel(elements[currentIndex]->element().first, c)) {
+	while (currentIndex != -1 ) {
+		if ((elements[currentIndex]->e.first == c && elements[currentIndex]->e.second == v))
+			break;
 		previousIndex = currentIndex;
 		currentIndex = elements[currentIndex]->next();
 	}
